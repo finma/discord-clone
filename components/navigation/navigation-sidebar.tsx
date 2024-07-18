@@ -28,7 +28,7 @@ export const NavigationSidebar = async () => {
   });
 
   return (
-    <div className="flex flex-col size-full items-center space-y-4 text-primary py-3 dark:bg-[#1E1F22] ">
+    <div className="flex flex-col size-full items-center space-y-4 text-primary py-3 bg-[#E3E5E8] dark:bg-[#1E1F22] ">
       {/* Create Server */}
       <NavigationAction />
 
