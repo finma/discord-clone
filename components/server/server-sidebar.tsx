@@ -189,7 +189,7 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             </div>
           </div>
         )}
-        {members?.length && (
+        {!!members?.length && (
           <div className="mb-2">
             <ServerSection
               label="Members"
