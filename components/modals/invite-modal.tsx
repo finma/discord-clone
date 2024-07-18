@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useOrigin } from "@/hooks/use-origin";
 import { useModal } from "@/hooks/use-modal-store";
+import { ActionTooltip } from "@/components/action-tooltip";
 
 export const InviteModal = () => {
   const { isOpen, onOpen, onClose, type, data } = useModal();
@@ -54,7 +55,7 @@ export const InviteModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-white text-black dark:bg-black dark:text-white p-0 overflow-hidden">
         {/* Header */}
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl font-bold text-center">
@@ -63,7 +64,7 @@ export const InviteModal = () => {
         </DialogHeader>
 
         <div className="p-6">
-          <Label className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70 ">
+          <Label className="uppercase text-xs font-bold text-zinc-500 dark:text-neutral-400 ">
             Server Invite Link
           </Label>
           <div className="flex items-center mt-2 gap-x-2">
@@ -71,21 +72,23 @@ export const InviteModal = () => {
               disabled={isLoading}
               value={inviteUrl}
               readOnly
-              className="bg-zinc-300/50 text-black border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="bg-zinc-300/50 text-black border-0 focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-black dark:text-white dark:border"
             />
 
-            <Button
-              disabled={isLoading}
-              onClick={onCopy}
-              size="icon"
-              className="bg-zinc-300/50 text-black hover:bg-zinc-300/30 transition"
-            >
-              {copied ? (
-                <Check className="size-4" />
-              ) : (
-                <Copy className="size-4" />
-              )}
-            </Button>
+            <ActionTooltip label="Copy">
+              <Button
+                disabled={isLoading}
+                onClick={onCopy}
+                size="icon"
+                className="bg-zinc-300/50 text-black dark:bg-black dark:text-white dark:border  hover:bg-zinc-300/30 dark:hover:bg-white/10 transition"
+              >
+                {copied ? (
+                  <Check className="size-4" />
+                ) : (
+                  <Copy className="size-4" />
+                )}
+              </Button>
+            </ActionTooltip>
           </div>
 
           <Button
@@ -93,7 +96,7 @@ export const InviteModal = () => {
             disabled={isLoading}
             variant="link"
             size="sm"
-            className="text-xs text-zinc-500 mt-4"
+            className="text-xs text-zinc-500 dark:text-neutral-400 mt-4"
           >
             Generate a new link
             <RefreshCw className="size-4 ml-2" />
