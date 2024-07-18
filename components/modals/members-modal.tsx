@@ -99,14 +99,14 @@ export const MembersModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-white text-black overflow-hidden">
+      <DialogContent className="bg-white text-black overflow-hidden dark:bg-black dark:text-white">
         {/* Header */}
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl font-bold text-center">
             Manage Members
           </DialogTitle>
-          <DialogDescription className="text-center text-zinc-500">
-            {server?.members.length} Members
+          <DialogDescription className="text-center text-zinc-500 dark:text-neutral-400">
+            {server?.members?.length} Members
           </DialogDescription>
         </DialogHeader>
 
@@ -119,7 +119,9 @@ export const MembersModal = () => {
                   {member.profile.name}
                   {roleIconMap[member.role]}
                 </div>
-                <p className="text-zinc-500 text-xs">{member.profile.email}</p>
+                <p className="text-zinc-500 text-xs dark:text-neutral-400">
+                  {member.profile.email}
+                </p>
               </div>
 
               {server.profileId !== member.profileId &&
@@ -127,7 +129,7 @@ export const MembersModal = () => {
                   <div className="ml-auto">
                     <DropdownMenu>
                       <DropdownMenuTrigger>
-                        <MoreVertical className="size-4 text-zinc-500" />
+                        <MoreVertical className="size-4 text-zinc-500 dark:text-neutral-400" />
                       </DropdownMenuTrigger>
                       <DropdownMenuContent side="left">
                         <DropdownMenuSub>
@@ -154,7 +156,7 @@ export const MembersModal = () => {
                                 <ShieldCheck className="size-4 mr-2" />
                                 <span>Moderator</span>
                                 {member.role === "MODERATOR" && (
-                                  <Check className="size-4 ml-auto" />
+                                  <Check className="size-4 ml-2" />
                                 )}
                               </DropdownMenuItem>
                             </DropdownMenuSubContent>
@@ -173,7 +175,7 @@ export const MembersModal = () => {
                   </div>
                 )}
               {loadingId === member.id && (
-                <Loader2 className="animate-spin size-4 text-zinc-500 ml-auto" />
+                <Loader2 className="animate-spin size-4 text-zinc-500 ml-auto dark:text-neutral-400" />
               )}
             </div>
           ))}

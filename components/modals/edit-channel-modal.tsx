@@ -96,7 +96,7 @@ export const EditChannelModal = () => {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-white text-black p-0 overflow-hidden">
+      <DialogContent className="bg-white text-black dark:bg-black dark:text-white p-0 overflow-hidden">
         {/* Header */}
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl font-bold text-center">
@@ -114,14 +114,14 @@ export const EditChannelModal = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-neutral-400">
                       Channel name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
                         placeholder="Enter channel name"
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0 autofill:bg-zinc-300/50"
+                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0 autofill:bg-zinc-300/50 dark:bg-black dark:text-white dark:border"
                         {...field}
                       />
                     </FormControl>
@@ -136,7 +136,7 @@ export const EditChannelModal = () => {
                 name="type"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-neutral-400">
                       Channel type
                     </FormLabel>
                     <Select
@@ -145,7 +145,7 @@ export const EditChannelModal = () => {
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0 autofill:bg-zinc-300/50 capitalize">
+                        <SelectTrigger className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0 autofill:bg-zinc-300/50 capitalize dark:bg-black dark:text-white dark:border">
                           <SelectValue placeholder="Select a channel type" />
                         </SelectTrigger>
                       </FormControl>
@@ -168,7 +168,7 @@ export const EditChannelModal = () => {
             </div>
 
             {/* Footer */}
-            <DialogFooter className="bg-gray-100 px-6 py-4">
+            <DialogFooter className="bg-gray-100 px-6 py-4 dark:bg-black dark:border-t">
               <Button variant="primary" disabled={isLoading}>
                 Save
               </Button>
