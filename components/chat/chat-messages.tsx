@@ -1,20 +1,17 @@
 "use client";
 
-import { Member, Message, Profile } from "@prisma/client";
-import { Loader2, ServerCrash } from "lucide-react";
+import { Fragment } from "react";
 import { format } from "date-fns";
+import { Member } from "@prisma/client";
+import { Loader2, ServerCrash } from "lucide-react";
 
 import { useChatQuery } from "@/hooks/use-chat-query";
+import { MessageWithMemberWithProfile } from "@/types";
 
 import { ChatWelcome } from "./chat-welcome";
-import { Fragment } from "react";
 import { ChatItem } from "./chat-item";
 
 const DATE_FORMAT = "d MMM yyyy, HH:mm";
-
-type MessageWithMemberWithProfile = Message & {
-  member: Member & { profile: Profile };
-};
 
 interface ChatMessagesProps {
   name: string;
