@@ -71,6 +71,7 @@ export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
                   </button>
                   <Input
                     disabled={isLoading}
+                    autoComplete="off"
                     placeholder={`Message ${
                       type === "channel" ? "#" + name : name
                     }`}
