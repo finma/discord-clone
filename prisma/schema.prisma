@@ -9,13 +9,13 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Profile {
-  id       String @id @default(uuid())
-  // id       String @id @default(uuid()) @map("_id")
+  // id       String @id @default(uuid())
+  id       String @id @default(uuid()) @map("_id")
   userId   String @unique
   name     String
   imageUrl String
@@ -32,8 +32,8 @@ model Profile {
 }
 
 model Server {
-  id         String @id @default(uuid())
-  // id         String @id @default(uuid()) @map("_id")
+  // id         String @id @default(uuid())
+  id         String @id @default(uuid()) @map("_id")
   name       String
   imageUrl   String
   inviteCode String @unique
@@ -58,8 +58,8 @@ enum MemberRole {
 }
 
 model Member {
-  id   String     @id @default(uuid())
-  // id   String     @id @default(uuid()) @map("_id")
+  // id   String     @id @default(uuid())
+  id   String     @id @default(uuid()) @map("_id")
   role MemberRole @default(GUEST)
 
   profileId String
@@ -89,8 +89,8 @@ enum ChannelType {
 }
 
 model Channel {
-  id   String      @id @default(uuid())
-  // id   String      @id @default(uuid()) @map("_id")
+  // id   String      @id @default(uuid())
+  id   String      @id @default(uuid()) @map("_id")
   name String
   type ChannelType @default(TEXT)
 
@@ -111,8 +111,8 @@ model Channel {
 }
 
 model Message {
-  id      String  @id @default(uuid())
-  // id      String  @id @default(uuid()) @map("_id")
+  // id      String  @id @default(uuid())
+  id      String  @id @default(uuid()) @map("_id")
   content String
   fileUrl String?
 
@@ -133,8 +133,8 @@ model Message {
 }
 
 model Conversation {
-  id String @id @default(uuid())
-  // id String @id @default(uuid()) @map("_id")
+  // id String @id @default(uuid())
+  id String @id @default(uuid()) @map("_id")
 
   memberOneId String
   memberOne   Member @relation("MemberOne", fields: [memberOneId], references: [id], onDelete: Cascade)
@@ -151,8 +151,8 @@ model Conversation {
 }
 
 model DirectMessage {
-  id      String  @id @default(uuid())
-  // id      String  @id @default(uuid()) @map("_id")
+  // id      String  @id @default(uuid())
+  id      String  @id @default(uuid()) @map("_id")
   content String
   fileUrl String?
 
